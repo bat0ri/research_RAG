@@ -1,0 +1,14 @@
+.env
+document.pdf
+document*
+*.pdf
+docx/*
+docx/*.pdf
+docx/
+output.md
+chroma_db/*
+.ipynb_checkpoints/
+chroma_db/
+chroma/
+venv/
+__pycache__/
