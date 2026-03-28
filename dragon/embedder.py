@@ -6,8 +6,6 @@ from sentence_transformers import SentenceTransformer
 from uuid import uuid4
 
 
-
-
 def insert_dataset(
     dataset,
     collection,
