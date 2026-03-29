@@ -10,8 +10,8 @@ def insert_dataset(
     dataset,
     collection,
     model,
-    chunk_size=500,
-    chunk_overlap=100,
+    chunk_size=2000,
+    chunk_overlap=20,
     batch_size=1000,
 ):
     

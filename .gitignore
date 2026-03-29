@@ -8,3 +8,4 @@ __pycache__/
 datasets/*/*.txt
 datasets/*/*.pdf
 datasets/*/*.docx
+datasets/*

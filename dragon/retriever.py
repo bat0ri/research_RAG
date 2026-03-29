@@ -8,7 +8,7 @@ class ChromaRetriever:
     def __init__(self, collection):
         self.collection = collection
 
-    def top_n(self, query: str, n:int=5):
+    def top_n(self, query: str, n:int=3):
         embedding = self.model.encode(["query: " + query]).tolist()
         results = self.collection.query(
             query_embeddings=embedding,
