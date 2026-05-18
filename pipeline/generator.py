@@ -8,6 +8,38 @@ from gigachat import GigaChat
 load_dotenv()
 OPENROUTER_TOKEN = os.getenv('OPENROUTER_TOKEN3')
 GIGACHAT_TOKEN = os.getenv("GIGACHAT_TOKEN")
+OLLAMA_MODEL = "qwen2.5vl:7b"
+
+
+
+class LocalOllamaGenerator:
+
+    model: str = OLLAMA_MODEL
+
+    def __invoke(self, prompt):
+        try:
+            url = "http://localhost:11434/api/generate"
+            payload = {
+                "model": self.model,
+                "prompt": prompt,
+                "stream": False
+            }
+            response = requests.post(url, json=payload)
+            return response.json()["response"]
+        except requests.exceptions.RequestException as e:
+            print(f"Сетевая ошибка: {e}")
+            return "Ошибка соединения с API"
+
+    
+    def generate(self, context, query):
+        
+        prompt = f"""Ты - ассистент, который отвечает на вопросы строго на основе предоставленного контекста. используешься для RAG системы. Не нужны пояснения.
+                    Давай ответ или предположение в кратком виде (Пример: Кто президент РФ в 2022? Ответ: Владимир Владимирович Путин).
+                    Контекст: {context}
+                    Вопрос\Запрос: {query}
+                """
+        answer = self.__invoke(prompt)
+        return answer
 
 
 class GigaChatGenerator:
@@ -43,7 +75,6 @@ class OpenRouterGenerator:
     token: str = "token"
     # model: str = "arcee-ai/trinity-large-preview:free"
     model: str = "nvidia/nemotron-3-super-120b-a12b:free"
-    
 
     def __init__(self):
         self.token = OPENROUTER_TOKEN
