@@ -1,0 +1,51 @@
+{
+  "benchmark1": {
+    "character": {
+      "n_chunks": 564,
+      "hit_rate": 0.83,
+      "mrr": 0.7477777777777778,
+      "precision": 0.2866666666666667
+    },
+    "recursive_character": {
+      "n_chunks": 2354,
+      "hit_rate": 0.8783333333333333,
+      "mrr": 0.8225,
+      "precision": 0.5122222222222222
+    },
+    "token": {
+      "n_chunks": 2148,
+      "hit_rate": 0.88,
+      "mrr": 0.8147222222222222,
+      "precision": 0.5072222222222222
+    },
+    "sentence_transformers": {
+      "n_chunks": 671,
+      "hit_rate": 0.825,
+      "mrr": 0.7441666666666666,
+      "precision": 0.31777777777777777
+    }
+  },
+  "benchmark2": {
+    "chunk_250": {
+      "chunk_size": 250,
+      "n_chunks": 4861,
+      "hit_rate": 0.8816666666666667,
+      "mrr": 0.8205555555555556,
+      "precision": 0.5577777777777777
+    },
+    "chunk_500": {
+      "chunk_size": 500,
+      "n_chunks": 2354,
+      "hit_rate": 0.88,
+      "mrr": 0.8241666666666667,
+      "precision": 0.5127777777777777
+    },
+    "chunk_1000": {
+      "chunk_size": 1000,
+      "n_chunks": 1151,
+      "hit_rate": 0.84,
+      "mrr": 0.7647222222222222,
+      "precision": 0.3888888888888889
+    }
+  }
+}
